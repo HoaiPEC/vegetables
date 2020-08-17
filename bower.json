@@ -1,0 +1,17 @@
+{
+  "name": "vegetables",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Hoai <hoainxptit@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/HoaiPEC/vegetables",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'localization'], function() {
+    Route::get('lang/{locale}', 'Admins\AdminController@switchLanguage')
+        ->name('lang');
+});
+
+//Admin
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dashboard', 'Admins\AdminController@index')->name('dashboard');
+    Route::resource('products', 'Admins\ProductController', [
+        'names' => [
+            'index' => 'products.index',
+            'destroy' => 'task.destroy',
+        ]
+    ]);
+    Route::resource('supliers', 'Admins\SuplierController', [
+        'names' => [
+            'index' => 'supliers.index',
+            'create' => 'supliers.create',
+            'store' => 'supliers.store',
+            'edit' => 'supliers.edit',
+            'destroy' => 'supliers.destroy',
+        ]
+    ]);
 });
